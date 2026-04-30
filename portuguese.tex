@@ -23,11 +23,11 @@
 % ==========================
 \begin{center}
     {\LARGE \textbf{Israel Araújo de Oliveira}}\\[3pt]
-    Poços de Caldas, MG — 
-    \href{mailto:israelaraujodeoliveira@gmail.com}{israelaraujodeoliveira@gmail.com} — 
+    Poços de Caldas, MG —
+    \href{mailto:israelaraujodeoliveira@gmail.com}{israelaraujodeoliveira@gmail.com} —
     +55 (35) 9 99742-1900\\
-    \href{https://www.linkedin.com/in/araisr/}{linkedin.com/in/araisr} • 
-    \href{https://github.com/IsraelAraujo70}{github.com/IsraelAraujo70} • 
+    \href{https://www.linkedin.com/in/araisr/}{linkedin.com/in/araisr} •
+    \href{https://github.com/IsraelAraujo70}{github.com/IsraelAraujo70} •
     \href{https://portfolio.israeldeveloper.com.br/}{portfolio.israeldeveloper.com.br}
 \end{center}
 
@@ -35,19 +35,21 @@
 % SUMMARY
 % ==========================
 \section*{Resumo Profissional}
-Desenvolvedor Backend e Full Stack com forte foco em engenharia de software, arquitetura limpa e sistemas escaláveis. Experiência prática com desenho de soluções arquiteturais, agentes de IA para extração de dados, testes automatizados, ambientes serverless e aplicação de padrões como Arquitetura Hexagonal (Ports \& Adapters). Perfil analítico, orientado a impacto e qualidade técnica.
+Engenheiro de Software Full Stack com 2+ anos de experiência em desenvolvimento de microsserviços, plataformas SaaS multi-tenant, automação com IA generativa e sistemas distribuídos em produção. Atuação hands-on em Python, TypeScript, Go e Rust, com entrega end-to-end em cloud AWS (Lambda, DynamoDB, SQS, S3), CI/CD, infraestrutura como código (Terraform) e integração de LLMs em pipelines de produção. 1.500+ commits e 500+ PRs nos últimos 7 meses. Contribuidor open source ativo (Zed Editor, 23k+ stars).
 
 % ==========================
 % SKILLS
 % ==========================
 \section*{Tecnologias \& Ferramentas}
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{Linguagens:} Python, PHP, TypeScript, Golang, JavaScript, SQL
-    \item \textbf{Backend:} FastAPI, Django, REST APIs, Serverless Framework
-    \item \textbf{Testes:} pytest, Jest, Cypress
-    \item \textbf{Arquitetura:} Hexagonal (Ports \& Adapters), Microserviços, Serverless
-    \item \textbf{Infra \& DevOps:} Docker, AWS Lambda, CI/CD
-    \item \textbf{Banco de Dados:} PostgreSQL, Redis, DynamoDB
+    \item \textbf{Linguagens:} Python, TypeScript, Go, Rust, PHP, JavaScript, SQL
+    \item \textbf{Backend:} Django, FastAPI, Serverless Framework, Node.js, REST APIs, WebSockets, GraphQL
+    \item \textbf{Frontend:} React.js, Next.js, AngularJS, Tauri v2, Wails
+    \item \textbf{IA Generativa \& LLMs:} Claude API (Anthropic), OpenAI API, OpenRouter, RAG, prompt engineering, pipelines de extração documental, OCR inteligente, visão computacional
+    \item \textbf{Testes \& Qualidade:} pytest, Jest, Cypress, Playwright, testes E2E, testes de integração, TDD
+    \item \textbf{Arquitetura:} Hexagonal (Ports \& Adapters), Clean Architecture, Domain-Driven Design (DDD), Microserviços, Serverless, Event-Driven Architecture
+    \item \textbf{Cloud \& DevOps:} AWS (Lambda, DynamoDB, S3, SQS, SNS, Cognito, Secrets Manager, VPC), Terraform, Docker, GitHub Actions, Bitbucket Pipelines, Sentry, observabilidade
+    \item \textbf{Banco de Dados:} PostgreSQL, DynamoDB, Redis, SQLite
 \end{itemize}
 
 % ==========================
@@ -55,73 +57,76 @@ Desenvolvedor Backend e Full Stack com forte foco em engenharia de software, arq
 % ==========================
 \section*{Experiência Profissional}
 
-\textbf{GarantiaBR — Desenvolvedor Python Backend} \hfill 10/2025 -- Atual
+\textbf{GarantiaBR — Desenvolvedor Full Stack Python} \hfill 10/2025 -- Atual
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Desenho e implementação de soluções de arquitetura escaláveis e resilientes.
-    \item Desenvolvimento de agentes de IA para extração automatizada de dados.
-    \item Criação de testes automatizados com \textbf{pytest}, garantindo alta confiabilidade.
-    \item Uso do \textbf{Serverless Framework} para deploy e automação de serviços.
-    \item Reestruturação de serviço aplicando \textbf{Ports \& Adapters (Arquitetura Hexagonal)}, aumentando modularidade e testabilidade.
+    \item Promovido a referência técnica da equipe após 4 meses; responsável por decisões arquiteturais, code review (164+ PRs revisados) e mentoria de desenvolvedores em 17+ repositórios.
+    \item Arquitetou e entregou \textbf{engine de integrações} em produção, conectando 10+ provedores externos (bancos, registros governamentais, sistemas contábeis) como microsserviços \textbf{AWS Lambda} com fluxo assíncrono e adaptadores de domínio (\textbf{Arquitetura Hexagonal}).
+    \item Projetou e implementou \textbf{plataforma SaaS multi-tenant} com RBAC granular, onboarding multi-step com tracking de sessão, audit logging com propagação de IP real e modelagem de hierarquia organizacional.
+    \item Construiu \textbf{engine de RPA} com \textbf{Playwright} para automação de coleta de dados em portais externos, incluindo camada de \textbf{residential proxy} para bypass de detecção de bot baseada em IP e rate limiting.
+    \item Desenvolveu pipeline de \textbf{extração inteligente de documentos} com \textbf{IA generativa} (LLM) para análise automatizada de formulários, classificação de legibilidade e ingestão via \textbf{S3} presigned URLs.
+    \item Criou \textbf{engine de notificações} multi-canal (email, Slack, webhooks) com \textbf{clean architecture}, permissionamento por canal e integração \textbf{AWS SNS}.
+    \item Implementou \textbf{engine de billing} com workers \textbf{SQS}, endpoints de resumo de consumo, faturamento por tenant e rastreabilidade.
+    \item Engenharia de CI/CD: auto-labeling de PRs com scoring ponderado, detecção automática de migrations, flags de security review, otimização de cache \textbf{Docker} e pipeline de deploy staging via \textbf{GitHub Actions}.
 \end{itemize}
 
 \textbf{AdaSistemas — Desenvolvedor Pleno / Coordenador de Projeto} \hfill 05/2025 -- 10/2025
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Desenvolvimento full stack de sistemas críticos com foco em robustez e segurança.
-    \item Criação de APIs seguras para integração com sistemas bancários.
-    \item Implementação de testes E2E com Cypress.
-    \item Automação de processos utilizando inteligência artificial.
-    \item Coordenação técnica de equipe e definição de prioridades arquiteturais.
+    \item Desenvolvimento full stack de sistemas críticos em \textbf{PHP} e \textbf{PostgreSQL} com versionamento via \textbf{Bitbucket}.
+    \item Criação de APIs REST seguras para integração com sistemas bancários e processamento de transações financeiras.
+    \item Implementação de suíte completa de testes E2E com \textbf{Cypress}, aumentando a cobertura e confiabilidade das entregas.
+    \item Automação de processos internos utilizando inteligência artificial, reduzindo trabalho manual repetitivo.
+    \item Coordenação técnica de equipe: definição de prioridades, revisão de código e decisões arquiteturais em sprints ágeis.
 \end{itemize}
 
 \textbf{AdaSistemas — Desenvolvedor Júnior} \hfill 01/2025 -- 05/2025
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Desenvolvimento de funcionalidades utilizando AngularJS, PHP e PostgreSQL.
-    \item Correção de bugs, manutenção de sistemas e participação em sprints ágeis.
-    \item Apoio na implementação de testes e melhorias contínuas de código.
+    \item Desenvolvimento de funcionalidades em \textbf{AngularJS}, \textbf{PHP} e \textbf{PostgreSQL} em sistema legado de grande porte.
+    \item Correção de bugs em produção, manutenção de sistemas e participação ativa em sprints ágeis (Scrum).
+    \item Apoio na implementação de testes automatizados e refatoração contínua de código para melhorias de performance.
+    \item Promovido a Desenvolvedor Pleno após 4 meses por entrega consistente e proatividade técnica.
 \end{itemize}
 
 \textbf{Desenvolvedor Freelancer — Frontend} \hfill 06/2023 -- 06/2025
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Desenvolvimento de aplicações React.js com foco em qualidade, performance e boas práticas.
-    \item Integração com APIs REST e criação de testes automatizados.
+    \item Desenvolvimento de aplicações \textbf{React.js} com foco em performance, acessibilidade e boas práticas (componentização, hooks, state management).
+    \item Integração com APIs REST, consumo de serviços externos e criação de testes automatizados com \textbf{Jest}.
+\end{itemize}
+
+% ==========================
+% OPEN SOURCE
+% ==========================
+\vspace{-4pt}
+\section*{Contribuições Open Source}
+\begin{itemize}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Zed Editor} (Rust, 23k+ stars) — 3 PRs aceitos: implementação de git graph view, minimal mode e file finder com preview e tree browsing.
+    \item \textbf{T3Code / OpenCode} — packaging Debian, correção de serialização de enums e implementação de toggle nativo Wayland para Linux.
 \end{itemize}
 
 % ==========================
 % PROJECTS
 % ==========================
 \vspace{-4pt}
-\section*{Projetos Notáveis}
+\section*{Projetos Pessoais}
 
-\textbf{Our Voice — Plataforma Social de Votação Democrática} \\
-Projeto full stack focado em escalabilidade e participação social.
-\begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Backend em \textbf{Django + Django REST Framework} e frontend em \textbf{Next.js}.
-    \item Mecanismos de votação e filas assíncronas utilizando \textbf{Redis}.
-    \item Arquitetura preparada para alto volume de usuários.
-    \item Infraestrutura containerizada com \textbf{Docker} e deploy automatizado.
-\end{itemize}
-\href{https://github.com/IsraelAraujo70/our-voice}{github.com/IsraelAraujo70/our-voice}
+\textbf{Prism — Cliente Desktop para GitHub PRs} \hfill \href{https://github.com/IsraelAraujo70/prism}{github.com/IsraelAraujo70/prism}\\
+Aplicação desktop em \textbf{Tauri v2 (Rust + TypeScript)} com review completo de PRs, diff unificado, comentários multi-linha com drag-select, inbox de notificações com deduplicação e auto-update. Pipeline de release cross-platform (macOS + Linux) via \textbf{GitHub Actions}. 61 commits, 94 arquivos.
 
-\vspace{6pt}
+\vspace{4pt}
+\textbf{Flux-Oriented Architecture — Framework de Orquestração de Fluxos} \hfill \href{https://github.com/IsraelAraujo70/flux-oriented-architecture}{github.com/IsraelAraujo70/flux-oriented-architecture}\\
+Framework backend autoral em \textbf{TypeScript} com orquestração declarativa de fluxos via JSON, sistema de plugins (auth/JWT, cache/Redis, database/PostgreSQL/MongoDB, email/SendGrid), CLI com 6 comandos, engine de interpolação e validação. 15 arquivos de teste, publicado no \textbf{npm}.
 
-\textbf{Flux-Oriented Architecture (FOA)} \\
-Framework backend autoral para orquestração declarativa de fluxos.
-\begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Definição de rotas e fluxos complexos via JSON, com retentativas e condicionais.
-    \item Arquitetura orientada à produtividade e redução de boilerplate.
-    \item CLI para validação, visualização e execução de fluxos.
-    \item Inspirado em princípios de \textbf{Clean Architecture}.
-\end{itemize}
-\href{https://github.com/IsraelAraujo70/flux-oriented-architecture}{github.com/IsraelAraujo70/flux-oriented-architecture}
+\vspace{4pt}
+\textbf{Money-2099 — App de Finanças Pessoais com IA} \hfill \href{https://github.com/IsraelAraujo70/money-2099}{github.com/IsraelAraujo70/money-2099}\\
+Monorepo full stack com \textbf{Next.js} (web) + \textbf{React Native} (mobile) + \textbf{Convex} (serverless backend). Assistente financeiro com IA via \textbf{OpenRouter} (Claude/Gemini), categorização automática, insights financeiros e módulos de orçamento, dívidas e investimentos. 251 arquivos, 56 commits.
 
 % ==========================
 % EDUCATION
 % ==========================
 \section*{Formação Acadêmica}
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{Bacharelado Interdisciplinar em Ciências e Tecnologia} — UNIFAL (2022–2025)
-    \item \textbf{Desenvolvimento Full Stack Python} — EBAC (2024–2025)
-    \item \textbf{Bacharelado em Engenharia de Software} — UNINTER (2025–2029)
+    \item \textbf{Bacharelado em Engenharia de Software} — UNINTER (2025--2029)
+    \item \textbf{Bacharelado Interdisciplinar em Ciências e Tecnologia} — UNIFAL (2022--2025)
+    \item \textbf{Desenvolvimento Full Stack Python} — EBAC (2024--2025)
 \end{itemize}
 
 % ==========================
