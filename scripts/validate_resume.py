@@ -18,6 +18,7 @@ REQUIRED = {
         "TypeScript",
         "AWS",
         "ComicConnect",
+        "(Contract)",
         "Professional working proficiency",
     ),
     "portuguese.tex": (
@@ -27,6 +28,7 @@ REQUIRED = {
         "TypeScript",
         "AWS",
         "ComicConnect",
+        "(Contrato)",
         "Proficiência profissional",
     ),
 }
@@ -109,4 +111,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-
