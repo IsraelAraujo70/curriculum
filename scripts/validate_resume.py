@@ -1,0 +1,112 @@
+#!/usr/bin/env python3
+"""Fast, deterministic quality gate for the resume sources."""
+
+from __future__ import annotations
+
+import re
+import sys
+from pathlib import Path
+
+
+ROOT = Path(__file__).resolve().parents[1]
+
+REQUIRED = {
+    "english.tex": (
+        "Mid-Level Backend / Full-Stack Engineer",
+        "3+ years",
+        "Python",
+        "TypeScript",
+        "AWS",
+        "ComicConnect",
+        "Professional working proficiency",
+    ),
+    "portuguese.tex": (
+        "Engenheiro Backend / Full Stack Pleno",
+        "3+ anos",
+        "Python",
+        "TypeScript",
+        "AWS",
+        "ComicConnect",
+        "Proficiência profissional",
+    ),
+}
+
+BANNED_PATTERNS = {
+    r"1[.,]500\+ commits": "commit-volume vanity metric",
+    r"500\+ PRs": "PR-volume vanity metric",
+    r"\d+k\+ stars": "repository-star borrowing",
+    r"bypass .*bot detection": "unsafe automation wording",
+    r"residential proxy": "proxy-evasion wording",
+    r"Full Stack Software Engineer with 2\+ years": "stale experience claim",
+    r"Engenheiro de Software Full Stack com 2\+ anos": "stale experience claim",
+}
+
+
+def validate_text(filename: str, text: str) -> list[str]:
+    errors: list[str] = []
+    for phrase in REQUIRED[filename]:
+        if phrase not in text:
+            errors.append(f"{filename}: missing required phrase: {phrase}")
+
+    for pattern, reason in BANNED_PATTERNS.items():
+        if re.search(pattern, text, flags=re.IGNORECASE):
+            errors.append(f"{filename}: contains {reason}: /{pattern}/")
+
+    bullet_count = text.count("\\item ")
+    if bullet_count > 30:
+        errors.append(f"{filename}: {bullet_count} bullets exceeds the 30-bullet limit")
+
+    return errors
+
+
+def validate_repository(root: Path = ROOT) -> list[str]:
+    errors: list[str] = []
+    documents: dict[str, str] = {}
+
+    for filename in REQUIRED:
+        path = root / filename
+        if not path.exists():
+            errors.append(f"missing resume source: {filename}")
+            continue
+        documents[filename] = path.read_text(encoding="utf-8")
+        errors.extend(validate_text(filename, documents[filename]))
+
+    if len(documents) == 2:
+        for date in ("04/2026", "10/2025", "05/2026", "01/2025", "06/2023", "06/2025"):
+            if any(date not in text for text in documents.values()):
+                errors.append(f"experience date is inconsistent across languages: {date}")
+
+        shared_links = (
+            "israelaraujodeoliveira@gmail.com",
+            "linkedin.com/in/araisr",
+            "github.com/IsraelAraujo70",
+            "portfolio.israeldeveloper.com.br",
+        )
+        for link in shared_links:
+            if any(link not in text for text in documents.values()):
+                errors.append(f"contact link is inconsistent across languages: {link}")
+
+    rubric = root / "evals" / "midlevel_resume_rubric.md"
+    runner = root / "evals" / "run.sh"
+    if not rubric.exists():
+        errors.append("missing periodic eval rubric")
+    if not runner.exists():
+        errors.append("missing periodic eval runner")
+
+    return errors
+
+
+def main() -> int:
+    errors = validate_repository()
+    if errors:
+        for error in errors:
+            print(f"FAIL: {error}")
+        return 1
+
+    print("PASS: resume sources are focused, consistent, and eval-ready")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
+

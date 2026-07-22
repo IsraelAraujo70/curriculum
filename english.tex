@@ -23,8 +23,10 @@
 % ==========================
 \begin{center}
     {\LARGE \textbf{Israel Araújo de Oliveira}}\\[3pt]
+    \textbf{Mid-Level Backend / Full-Stack Engineer | Python, TypeScript, AWS}\\[3pt]
     Poços de Caldas, MG, Brazil —
-    \href{mailto:israelaraujodeoliveira@gmail.com}{israelaraujodeoliveira@gmail.com}\\
+    \href{mailto:israelaraujodeoliveira@gmail.com}{israelaraujodeoliveira@gmail.com} —
+    +55 35 9997421900\\
     \href{https://www.linkedin.com/in/araisr/}{linkedin.com/in/araisr} •
     \href{https://github.com/IsraelAraujo70}{github.com/IsraelAraujo70} •
     \href{https://portfolio.israeldeveloper.com.br/}{portfolio.israeldeveloper.com.br}
@@ -34,21 +36,18 @@
 % SUMMARY
 % ==========================
 \section*{Professional Summary}
-Full Stack Software Engineer with 2+ years of experience building microservices, multi-tenant SaaS platforms, generative AI automation, and distributed systems in production. Hands-on delivery across Python, TypeScript, Go, and Rust with end-to-end ownership on AWS cloud (Lambda, DynamoDB, SQS, S3), CI/CD pipelines, infrastructure as code (Terraform), and LLM integration in production workflows. 1,500+ commits and 500+ PRs in the last 7 months. Active open source contributor (Zed Editor, 23k+ stars).
+Mid-level backend and full-stack engineer with 3+ years of professional software development experience. I build production SaaS products, integrations, and asynchronous workflows with \textbf{Python, TypeScript, and AWS}. Promoted from junior to mid-level in four months and later trusted with technical leadership, architecture, code review, and mentoring responsibilities. Experienced working end to end across APIs, cloud infrastructure, testing, CI/CD, observability, and AI-assisted document workflows.
 
 % ==========================
 % SKILLS
 % ==========================
 \section*{Technologies \& Tools}
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{Languages:} Python, TypeScript, Go, Rust, PHP, JavaScript, SQL
-    \item \textbf{Backend:} Django, FastAPI, Serverless Framework, Node.js, REST APIs, WebSockets, GraphQL
-    \item \textbf{Frontend:} React.js, Next.js, AngularJS, Tauri v2, Wails
-    \item \textbf{Generative AI \& LLMs:} Claude API (Anthropic), OpenAI API, OpenRouter, RAG, prompt engineering, document extraction pipelines, intelligent OCR, computer vision
-    \item \textbf{Testing \& Quality:} pytest, Jest, Cypress, Playwright, E2E testing, integration testing, TDD
-    \item \textbf{Architecture:} Hexagonal (Ports \& Adapters), Clean Architecture, Domain-Driven Design (DDD), Microservices, Serverless, Event-Driven Architecture
-    \item \textbf{Cloud \& DevOps:} AWS (Lambda, DynamoDB, S3, SQS, SNS, Cognito, Secrets Manager, VPC), Terraform, Docker, GitHub Actions, Bitbucket Pipelines, Sentry, observability
-    \item \textbf{Databases:} PostgreSQL, DynamoDB, Redis, SQLite
+    \item \textbf{Core:} Python, TypeScript, JavaScript, PHP, SQL; working knowledge of Go and Rust
+    \item \textbf{Backend \& Frontend:} Django, FastAPI, Node.js, REST APIs, React, Next.js, AngularJS
+    \item \textbf{Cloud \& Data:} AWS Lambda, SQS, SNS, S3, DynamoDB, Cognito, PostgreSQL, Redis, Terraform, Docker
+    \item \textbf{Quality \& Delivery:} pytest, Jest, Cypress, Playwright, integration/E2E testing, GitHub Actions, Buddy CI/CD, observability
+    \item \textbf{Architecture \& AI:} Multi-tenant SaaS, event-driven systems, hexagonal architecture, RBAC, audit logging, LLM document extraction
 \end{itemize}
 
 % ==========================
@@ -56,49 +55,35 @@ Full Stack Software Engineer with 2+ years of experience building microservices,
 % ==========================
 \section*{Professional Experience}
 
-\textbf{Metropolis Comics — TypeScript / PHP / Terraform Developer} \hfill 04/2026 -- Present
+\textbf{ComicConnect — TypeScript / PHP / Terraform Developer} \hfill 04/2026 -- Present
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Built the \textbf{Message Reservation System (MRS)} from scratch: weekly MMS product campaigns; customers reply \textbf{BUY} to reserve first-come, first-served.
-    \item Owned the full stack monorepo: \textbf{Next.js} admin panel, \textbf{TypeScript} AWS Lambdas (sender, receiver, CSV import worker), and shared domain types.
-    \item Provisioned AWS infrastructure as code with \textbf{Terraform} — DynamoDB, Lambda, SQS FIFO, API Gateway, Cognito, CloudWatch, IAM.
-    \item Enforced reservation atomicity with \textbf{DynamoDB} transactions and conditional writes on stock; SQS FIFO ordering per phone.
-    \item Integrated \textbf{Twilio} MMS/SMS and the \textbf{Laravel (PHP)} legacy API for product/customer compatibility and admin flows.
-    \item Shipped LocalStack local-dev stack and \textbf{Buddy CI/CD} pipelines deploying admin, lambdas, and Terraform on push to staging/main.
+    \item Build and operate a full-stack messaging platform using \textbf{Next.js}, \textbf{TypeScript}, AWS Lambda, and a shared-domain monorepo.
+    \item Designed event-driven processing with \textbf{DynamoDB transactions}, conditional writes, and \textbf{SQS FIFO} ordering to preserve consistency under concurrent requests.
+    \item Provision AWS infrastructure with \textbf{Terraform}, including Lambda, DynamoDB, SQS, API Gateway, Cognito, CloudWatch, and IAM.
+    \item Integrate Twilio messaging with a legacy \textbf{Laravel/PHP} platform and maintain reproducible local and CI/CD environments with LocalStack and Buddy.
 \end{itemize}
 
 \textbf{GarantiaBR — Full Stack Python Developer} \hfill 10/2025 -- 05/2026
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Became the team's technical reference after 4 months; responsible for architectural decisions, code review (164+ PRs reviewed), and developer mentorship across 17+ repositories.
-    \item Architected and shipped an \textbf{integration engine} connecting 10+ external providers (banks, government registries, accounting systems) as \textbf{AWS Lambda} microservices with async flows and domain adapters (\textbf{Hexagonal Architecture}).
-    \item Designed and implemented a \textbf{multi-tenant SaaS platform} with granular RBAC, multi-step onboarding with session tracking, audit logging with real IP propagation, and organizational hierarchy modeling.
-    \item Built an \textbf{RPA engine} with \textbf{Playwright} for automated data retrieval from external portals, including a \textbf{residential proxy layer} to bypass IP-based bot detection and rate limiting.
-    \item Developed an \textbf{intelligent document extraction pipeline} using \textbf{generative AI} (LLM) for automated form analysis, legibility classification, and ingestion via \textbf{S3} presigned URLs.
-    \item Created a multi-channel \textbf{notification engine} (email, Slack, webhooks) with \textbf{clean architecture}, per-channel permissions, and \textbf{AWS SNS} integration.
-    \item Implemented a \textbf{billing engine} with \textbf{SQS} workers, usage summary endpoints, per-tenant invoicing, and consumption tracking.
-    \item CI/CD engineering: automated PR labeling with weighted scoring, migration detection, security review flags, \textbf{Docker} cache optimization, and staging deploy pipelines via \textbf{GitHub Actions}.
+    \item Assumed technical leadership responsibilities within four months, supporting architecture decisions, code review, and mentoring across a multi-service product platform.
+    \item Architected an integration engine connecting \textbf{10+ banking, government, and accounting providers} through Python services and AWS Lambda with asynchronous flows and domain adapters.
+    \item Built a \textbf{multi-tenant SaaS platform} with granular RBAC, multi-step onboarding, audit logging, organizational hierarchy, and production observability.
+    \item Delivered an LLM-assisted document pipeline with schema-aware extraction, legibility checks, S3 presigned uploads, explicit failure handling, and human-review fallbacks.
+    \item Implemented event-driven billing and multi-channel notification workflows using \textbf{SQS/SNS}, usage tracking, tenant-level invoicing, email, Slack, and webhooks.
 \end{itemize}
 
-\textbf{AdaSistemas — Mid-Level Developer / Project Coordinator} \hfill 05/2025 -- 10/2025
+\newpage
+\textbf{AdaSistemas — Junior to Mid-Level Full-Stack Developer} \hfill 01/2025 -- 10/2025
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Full stack development of business-critical systems in \textbf{PHP} and \textbf{PostgreSQL} with version control via \textbf{Bitbucket}.
-    \item Built secure REST APIs for banking system integration and financial transaction processing.
-    \item Implemented a comprehensive E2E test suite with \textbf{Cypress}, increasing delivery coverage and reliability.
-    \item Automated internal processes using artificial intelligence, reducing repetitive manual work.
-    \item Technical team coordination: priority definition, code review, and architectural decisions in agile sprints.
-\end{itemize}
-
-\textbf{AdaSistemas — Junior Developer} \hfill 01/2025 -- 05/2025
-\begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Feature development in \textbf{AngularJS}, \textbf{PHP}, and \textbf{PostgreSQL} on a large-scale legacy system.
-    \item Production bug fixes, system maintenance, and active participation in agile sprints (Scrum).
-    \item Contributed to automated test implementation and continuous code refactoring for performance improvements.
-    \item Promoted to Mid-Level Developer after 4 months for consistent delivery and technical proactivity.
+    \item Promoted from junior to mid-level after four months, then supported sprint priorities, code review, and technical decisions.
+    \item Built secure REST APIs for banking integrations and financial transaction processing using \textbf{PHP} and \textbf{PostgreSQL}.
+    \item Introduced \textbf{Cypress E2E testing} to a large legacy application, improving release confidence and regression detection.
+    \item Delivered production features and incident fixes across AngularJS, PHP, PostgreSQL, and automated internal workflows.
 \end{itemize}
 
 \textbf{Freelance Developer — Frontend} \hfill 06/2023 -- 06/2025
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Built \textbf{React.js} applications with focus on performance, accessibility, and best practices (componentization, hooks, state management).
-    \item REST API integration, third-party service consumption, and automated testing with \textbf{Jest}.
+    \item Delivered React applications, third-party API integrations, and Jest test suites for client projects, with focus on performance and accessibility.
 \end{itemize}
 
 % ==========================
@@ -106,10 +91,7 @@ Full Stack Software Engineer with 2+ years of experience building microservices,
 % ==========================
 \vspace{-4pt}
 \section*{Open Source Contributions}
-\begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{Zed Editor} (Rust, 23k+ stars) — 3 accepted PRs: git graph view implementation, minimal mode, and file finder with preview and tree browsing.
-    \item \textbf{T3Code / OpenCode} — Debian packaging, enum serialization fix, and native Wayland toggle for Linux.
-\end{itemize}
+Accepted contributions to \textbf{Zed Editor}, \textbf{OpenCode}, and \textbf{T3Code}, including Git tooling, Linux/Wayland support, Debian packaging, and serialization fixes. Links and code are available on GitHub.
 
 % ==========================
 % PROJECTS
@@ -117,24 +99,12 @@ Full Stack Software Engineer with 2+ years of experience building microservices,
 \vspace{-4pt}
 \section*{Personal Projects}
 
-\textbf{Notion Clone — Collaborative Block Workspace} \hfill \href{https://github.com/IsraelAraujo70/notion-clone}{github.com/IsraelAraujo70/notion-clone}\\
-Portfolio-grade collaborative workspace with block model, LWW operation log, keyboard-first editor, realtime WebSocket sync, permission-scoped search, trash/restore, and AI that writes through the same op path. \textbf{Rust} (Axum) backend + \textbf{Next.js} frontend + \textbf{PostgreSQL/pgvector}. 30 commits, 275 files.
+\textbf{Notion Clone — Collaborative Workspace} \hfill \href{https://github.com/IsraelAraujo70/notion-clone}{GitHub}\\
+Real-time workspace with a block model, WebSocket synchronization, permission-scoped search, trash/restore, and AI writes routed through the same operation path. Next.js, PostgreSQL/pgvector, Rust/Axum.
 
 \vspace{4pt}
-\textbf{Drive Clone — Personal Cloud Storage} \hfill \href{https://github.com/IsraelAraujo70/drive-clone}{github.com/IsraelAraujo70/drive-clone}\\
-Google Drive-like app with auth, folders, resumable multipart uploads, share by email, trash/restore, filename search, and quota. \textbf{Rust} API (Axum/SQLx) + \textbf{Next.js}; file bytes on S3-compatible storage; Railway-first deploy. 54 commits, 307 files.
-
-\vspace{4pt}
-\textbf{Prism — Desktop GitHub PR Client} \hfill \href{https://github.com/IsraelAraujo70/prism}{github.com/IsraelAraujo70/prism}\\
-Desktop application built with \textbf{Tauri v2 (Rust + TypeScript)} featuring full PR review, unified diffs, multi-line drag-select comments, notification inbox with deduplication, and auto-updates. Cross-platform release pipeline (macOS + Linux) via \textbf{GitHub Actions}. 61 commits, 94 files.
-
-\vspace{4pt}
-\textbf{Lurian AI — AI-Powered Personal Finance} \hfill \href{https://github.com/IsraelAraujo70/lurian-ai}{github.com/IsraelAraujo70/lurian-ai}\\
-Full stack finance monorepo — \textbf{React/Vite} (web) + \textbf{Expo} (mobile) + \textbf{Rust} API (Axum/SQLx). Multi-tenant workspaces with RBAC, OpenRouter AI via backend, JWT auth, and Kamal deploy. 86 commits.
-
-\vspace{4pt}
-\textbf{Flux-Oriented Architecture — Flow Orchestration Framework} \hfill \href{https://github.com/IsraelAraujo70/flux-oriented-architecture}{github.com/IsraelAraujo70/flux-oriented-architecture}\\
-Original backend framework in \textbf{TypeScript} with declarative JSON-based flow orchestration, plugin system (auth/JWT, cache/Redis, database/PostgreSQL/MongoDB, email/SendGrid), CLI with 6 commands, interpolation engine, and validator. 15 test files, published on \textbf{npm}.
+\textbf{Drive Clone — Cloud Storage Platform} \hfill \href{https://github.com/IsraelAraujo70/drive-clone}{GitHub}\\
+Full-stack storage application with authorization, folders, resumable multipart uploads, sharing, quota enforcement, permission-scoped search, background jobs, PostgreSQL metadata, and S3-compatible object storage.
 
 % ==========================
 % EDUCATION
@@ -150,6 +120,6 @@ Original backend framework in \textbf{TypeScript} with declarative JSON-based fl
 % LANGUAGES
 % ==========================
 \section*{Languages}
-Portuguese (Native) • English (Advanced)
+Portuguese (Native) • English (Professional working proficiency)
 
 \end{document}
