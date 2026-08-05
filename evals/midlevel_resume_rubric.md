@@ -2,9 +2,9 @@
 
 Evaluate the supplied English resume for this target:
 
-- Mid-level backend or full-stack engineering
+- Mid-level full-stack, backend, or applied AI software engineering
 - International remote roles open to candidates in Brazil/LatAm
-- Primary stack: Python, TypeScript, AWS
+- Primary stack: TypeScript, Node.js, Python, AWS
 - Supporting strengths: SaaS, integrations, event-driven systems, AI-assisted workflows
 
 Score each criterion from 0 to 20 and cite exact resume evidence:
@@ -34,4 +34,3 @@ DISQUALIFIERS: <none or semicolon-separated list>
 EVIDENCE: <one concise paragraph>
 TOP_FIX: <single highest-impact fix or none>
 ```
-

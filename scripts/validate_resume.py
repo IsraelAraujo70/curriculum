@@ -12,7 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED = {
     "english.tex": (
-        "Mid-Level Backend / Full-Stack Engineer",
+        "Mid-Level Full-Stack \\& AI Software Engineer",
         "3+ years",
         "Python",
         "TypeScript",
@@ -22,7 +22,7 @@ REQUIRED = {
         "Professional working proficiency",
     ),
     "portuguese.tex": (
-        "Engenheiro Backend / Full Stack Pleno",
+        "Engenheiro de Software Full Stack e IA Pleno",
         "3+ anos",
         "Python",
         "TypeScript",
