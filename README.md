@@ -1,6 +1,6 @@
 # Curriculum
 
-ATS-friendly resumes positioned for mid-level international backend and full-stack roles using Python, TypeScript, and AWS.
+ATS-friendly resumes positioned for mid-level full-stack, backend, and applied AI roles using TypeScript, Node.js, Python, and AWS.
 
 ## Build
 
@@ -29,4 +29,3 @@ Run before publishing a new resume version:
 ```
 
 The eval uses local Claude Code and must score at least 85/100 with no disqualifier from `evals/midlevel_resume_rubric.md`.
-
