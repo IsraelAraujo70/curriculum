@@ -46,8 +46,19 @@ BANNED_PATTERNS = {
 }
 
 
+MONERIA_ENTRY = re.compile(r"Moneria[^\n]*\\hfill 10/2026 --")
+
+
+def strip_comments(text: str) -> str:
+    """Remove LaTeX comments so a phrase or date inside `%` cannot satisfy a check."""
+    return re.sub(r"(?<!\\)%.*", "", text)
+
+
 def validate_text(filename: str, text: str) -> list[str]:
+    text = strip_comments(text)
     errors: list[str] = []
+    if filename in REQUIRED and not MONERIA_ENTRY.search(text):
+        errors.append(f"{filename}: Moneria entry must start 10/2026 on its heading line")
     for phrase in REQUIRED[filename]:
         if phrase not in text:
             errors.append(f"{filename}: missing required phrase: {phrase}")
@@ -72,7 +83,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         if not path.exists():
             errors.append(f"missing resume source: {filename}")
             continue
-        documents[filename] = path.read_text(encoding="utf-8")
+        documents[filename] = strip_comments(path.read_text(encoding="utf-8"))
         errors.extend(validate_text(filename, documents[filename]))
 
     if len(documents) == 2:
