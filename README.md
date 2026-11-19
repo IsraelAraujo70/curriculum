@@ -20,6 +20,15 @@ python3 scripts/validate_resume.py
 
 The validator checks role positioning, experience consistency, required evidence, risky wording, and the presence of the periodic quality eval.
 
+## ATS readability check
+
+```bash
+tectonic portuguese.tex && tectonic english.tex   # or pdflatex
+python3 scripts/ats_check.py portuguese.pdf english.pdf
+```
+
+Scores each PDF from 0 to 10, one point per check: page limit, clean Unicode text, standard section headings, reading order, parseable contact, parseable dates, fonts with a Unicode map, standard bullets, rubric keywords, and no images. It reads the PDF text the way a parser does, so it catches problems the LaTeX source hides (for example, accents that extract as loose marks without T1 fonts and glyph-to-Unicode mapping).
+
 ## Periodic quality eval
 
 Run before publishing a new resume version:

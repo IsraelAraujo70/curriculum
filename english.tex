@@ -9,6 +9,7 @@
 \usepackage{parskip}
 \usepackage{enumitem}
 \usepackage{hyperref}
+\usepackage{needspace}
 \geometry{top=1.2cm, bottom=1.5cm, left=1.3cm, right=1.3cm}
 
 % FONT
@@ -23,6 +24,10 @@
 }
 
 \begin{document}
+\pagenumbering{gobble}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\raggedright
 
 % ==========================
 % HEADER
@@ -32,7 +37,7 @@
     \textbf{Mid-Level Full-Stack \& AI Software Engineer | TypeScript, Node.js, Python, AWS}\\[3pt]
     Poços de Caldas, MG, Brazil —
     \href{mailto:israelaraujodeoliveira@gmail.com}{israelaraujodeoliveira@gmail.com} —
-    +55 35 9997421900\\
+    +55 (35) 99742-1900\\
     \href{https://www.linkedin.com/in/araisr/}{linkedin.com/in/araisr} •
     \href{https://github.com/IsraelAraujo70}{github.com/IsraelAraujo70} •
     \href{https://portfolio.israeldeveloper.com.br/}{portfolio.israeldeveloper.com.br}
@@ -61,9 +66,9 @@ Mid-level full-stack and backend engineer with 3+ years of professional software
 % ==========================
 \section*{Professional Experience}
 
-\textbf{Moneria — Software Engineer (Payments Fintech)} \hfill 10/2026 -- Present
+\textbf{Moneria — Software Engineer (Full-time)} \hfill 10/2026 -- Present
 \begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Build and evolve payments APIs in \textbf{TypeScript} with \textbf{NestJS}, Prisma, Redis, and Kafka, covering Pix, 3DS card payments, withdrawals, and receivables.
+    \item Build and evolve payments APIs at a fintech in \textbf{TypeScript} with \textbf{NestJS}, Prisma, Redis, and Kafka, covering Pix, 3DS card payments, withdrawals, and receivables.
     \item Made financial flows safe under concurrency and event redelivery, preventing duplicated operations in Pix, withdrawals, and refunds.
     \item Extended the CERC integration with webhooks, scheduled weekly submissions, and operational alerts through Slack and email.
     \item Maintain AWS infrastructure with \textbf{Terraform} (ECS, MSK, Lambda) and built engineering automation: CI gates, a TypeScript verification CLI, and a Slack AI assistant that turns Linear tickets into pull requests in isolated environments.

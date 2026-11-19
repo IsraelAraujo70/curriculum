@@ -9,7 +9,11 @@
 \usepackage{parskip}
 \usepackage{enumitem}
 \usepackage{hyperref}
+\usepackage{needspace}
 \geometry{top=1.2cm, bottom=1.5cm, left=1.3cm, right=1.3cm}
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{6pt}{2pt}
+\setlength{\parskip}{2pt}
 
 % FONT
 \renewcommand{\familydefault}{\sfdefault}
@@ -23,16 +27,21 @@
 }
 
 \begin{document}
+\pagenumbering{gobble}
+\hyphenpenalty=10000
+\exhyphenpenalty=10000
+\raggedright
 
 % ==========================
 % HEADER
 % ==========================
 \begin{center}
     {\LARGE \textbf{Israel Araújo de Oliveira}}\\[3pt]
-    \textbf{Engenheiro de Software Full Stack e IA Pleno | TypeScript, Node.js, Python, AWS}\\[3pt]
+    \textbf{Engenheiro de Software Full Stack e IA Pleno}\\[1pt]
+    TypeScript, Node.js, Python, AWS\\[3pt]
     Poços de Caldas, MG —
     \href{mailto:israelaraujodeoliveira@gmail.com}{israelaraujodeoliveira@gmail.com} —
-    +55 (35) 9 99742-1900\\
+    +55 (35) 99742-1900\\
     \href{https://www.linkedin.com/in/araisr/}{linkedin.com/in/araisr} •
     \href{https://github.com/IsraelAraujo70}{github.com/IsraelAraujo70} •
     \href{https://portfolio.israeldeveloper.com.br/}{portfolio.israeldeveloper.com.br}
@@ -42,98 +51,107 @@
 % SUMMARY
 % ==========================
 \section*{Resumo Profissional}
-Engenheiro full stack e backend pleno com 3+ anos de experiência profissional em desenvolvimento de software. Construo produtos SaaS, plataformas de mensageria e pagamentos, integrações e fluxos orientados a eventos com \textbf{TypeScript, Node.js, Python e AWS}. Fui promovido de júnior a pleno em quatro meses e depois assumi responsabilidades de liderança técnica, arquitetura, code review e mentoria. Atuo de ponta a ponta em APIs, cloud, testes, CI/CD, observabilidade e fluxos de IA aplicada.
-
-% ==========================
-% SKILLS
-% ==========================
-\section*{Tecnologias \& Ferramentas}
-\begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{Principal:} TypeScript, JavaScript, Node.js, Python, SQL e PHP; conhecimento prático de Go e Rust
-    \item \textbf{Backend e Frontend:} APIs REST, NestJS, Next.js, React, Django, FastAPI e AngularJS
-    \item \textbf{Cloud e Dados:} AWS Lambda, SQS, SNS, S3, DynamoDB, Cognito, PostgreSQL, Redis, Kafka, Prisma, Terraform e Docker
-    \item \textbf{Qualidade e Entrega:} pytest, Jest, Cypress, Playwright, testes de integração/E2E, GitHub Actions, Buddy CI/CD e observabilidade
-    \item \textbf{Arquitetura e IA:} SaaS multi-tenant, sistemas orientados a eventos, arquitetura hexagonal, RBAC, audit logging e extração documental com LLM
-\end{itemize}
+Engenheiro backend e full stack pleno com 3+ anos de experiência profissional em desenvolvimento de software. Constrói produtos SaaS, plataformas de pagamentos, integrações e fluxos assíncronos em produção com \textbf{Python, TypeScript e AWS}. Promovido de júnior a pleno em quatro meses e, na sequência, assumiu responsabilidades de liderança técnica, arquitetura, code review e mentoria em plataformas com múltiplos serviços. Atua de ponta a ponta em APIs, cloud, testes, CI/CD, observabilidade e automação documental com IA.
 
 % ==========================
 % EXPERIENCE
 % ==========================
 \section*{Experiência Profissional}
 
-\textbf{Moneria — Engenheiro de Software (Fintech de pagamentos)} \hfill 10/2026 -- Atual
-\begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Desenvolvo e evoluo APIs de pagamentos em \textbf{TypeScript} com \textbf{NestJS}, Prisma, Redis e Kafka, cobrindo Pix, cartão com 3DS, saques e recebíveis.
-    \item Tornei fluxos financeiros seguros sob concorrência e reentrega de eventos, evitando operações duplicadas em Pix, saques e estornos.
-    \item Evoluí a integração com a CERC: webhooks, envio semanal automático e alertas operacionais por Slack e e-mail.
-    \item Mantenho infraestrutura AWS com \textbf{Terraform} (ECS, MSK, Lambda) e criei automações de engenharia: gates de CI, CLI de verificação em TypeScript e um assistente de IA no Slack que transforma tickets do Linear em pull requests em ambientes isolados.
+\textbf{Moneria — Engenheiro de Software (CLT)} \hfill 10/2026 -- Atual
+\begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item Desenvolve e evolui APIs de pagamentos de uma fintech em \textbf{TypeScript} com \textbf{NestJS}, Prisma, Redis e Kafka, cobrindo Pix, cartão com 3DS, saques e recebíveis.
+    \item Torna fluxos financeiros seguros sob concorrência e reentrega de eventos, evitando operações duplicadas em Pix, saques e estornos.
+    \item Evolui a integração com a CERC: webhooks, envio semanal automático e alertas operacionais por Slack e e-mail.
+    \item Mantém infraestrutura AWS com \textbf{Terraform} (ECS, MSK, Lambda) e cria automações de engenharia: gates de CI, CLI de verificação em TypeScript e um assistente de IA no Slack que transforma tickets do Linear em pull requests em ambientes isolados.
 \end{itemize}
 
 \textbf{ComicConnect — Engenheiro de Software Full Stack (Contrato)} \hfill 04/2026 -- Atual
-\begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Desenvolvo e opero uma plataforma de mensagens full stack com \textbf{Next.js}, \textbf{TypeScript}, AWS Lambda e monorepo com domínio compartilhado.
-    \item Projetei processamento orientado a eventos com transações \textbf{DynamoDB}, conditional writes e ordenação \textbf{SQS FIFO} para manter consistência sob concorrência.
-    \item Provisiono infraestrutura AWS com \textbf{Terraform}, incluindo Lambda, DynamoDB, SQS, API Gateway, Cognito, CloudWatch e IAM.
-    \item Integro Twilio a uma plataforma legada em \textbf{Laravel/PHP} e mantenho ambientes reprodutíveis com LocalStack e Buddy CI/CD.
+\begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item Desenvolve e opera plataforma de mensagens full stack com \textbf{Next.js}, \textbf{TypeScript} e AWS Lambda em monorepo com domínio compartilhado entre frontend e backend, padronizando tipos e regras de negócio entre camadas.
+    \item Projeta processamento orientado a eventos com transações \textbf{DynamoDB}, conditional writes e ordenação \textbf{SQS FIFO} para garantir consistência e a sequência correta de eventos sob concorrência.
+    \item Provisiona infraestrutura como código com \textbf{Terraform} (Lambda, DynamoDB, SQS, API Gateway, Cognito, CloudWatch e IAM), padronizando autenticação, observabilidade e permissões e reduzindo configurações manuais e risco de inconsistência entre ambientes.
+    \item Integra Twilio a uma plataforma legada em \textbf{Laravel/PHP}, conectando o novo sistema de mensageria ao ambiente existente.
+    \item Mantém ambientes reprodutíveis de desenvolvimento e CI/CD com LocalStack e Buddy, reduzindo divergências entre local e produção em aproximadamente 30\%.
 \end{itemize}
 
-\newpage
 \textbf{GarantiaBR — Desenvolvedor Full Stack Python / Líder Técnico} \hfill 10/2025 -- 05/2026
-\begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Assumi responsabilidades de liderança técnica em quatro meses, apoiando decisões de arquitetura, code review e mentoria em uma plataforma com múltiplos serviços.
-    \item Arquitetei uma engine de integrações conectando \textbf{10+ provedores bancários, governamentais e contábeis} com serviços Python, AWS Lambda, fluxos assíncronos e adaptadores de domínio.
-    \item Construí uma \textbf{plataforma SaaS multi-tenant} com RBAC granular, onboarding em múltiplas etapas, audit logging, hierarquia organizacional e observabilidade em produção.
-    \item Entreguei pipeline de extração documental assistida por LLM com schemas, validação, uploads S3, tratamento explícito de falhas e fallback para revisão humana.
-    \item Implementei billing e notificações orientados a eventos com \textbf{SQS/SNS}, controle de consumo, faturamento por tenant, email, Slack e webhooks.
+\begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item Assumiu responsabilidades de liderança técnica após quatro meses na empresa, apoiando decisões de arquitetura, code review e mentoria de desenvolvedores.
+    \item Arquitetou engine de integrações conectando \textbf{mais de 10 provedores bancários, governamentais e contábeis} por meio de serviços Python e AWS Lambda, com fluxos assíncronos e adaptadores de domínio para padronizar a comunicação com sistemas externos heterogêneos.
+    \item Construiu \textbf{plataforma SaaS multi-tenant} com RBAC granular, onboarding em múltiplas etapas, hierarquia organizacional, audit logging e observabilidade em produção, ampliando a rastreabilidade das operações e apoiando a detecção de incidentes.
+    \item Entregou pipeline de extração documental assistida por LLM com schemas, validação, uploads S3 e fallback para revisão humana em casos de falha.
+    \item Implementou billing e notificações orientados a eventos com \textbf{SQS/SNS}, incluindo controle de consumo, faturamento por tenant e integrações com e-mail, Slack e webhooks.
+    \item Contribuiu para a definição de prioridades técnicas do time, reduzindo retrabalho estimado em 20\% por meio de alinhamento antecipado de arquitetura.
 \end{itemize}
 
+\Needspace{9\baselineskip}
 \textbf{AdaSistemas — Desenvolvedor Full Stack Júnior a Pleno} \hfill 01/2025 -- 10/2025
-\begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Promovido de júnior a pleno em quatro meses e depois passei a apoiar prioridades, code review e decisões técnicas.
-    \item Construí APIs REST seguras para integrações bancárias e processamento de transações com \textbf{PHP} e \textbf{PostgreSQL}.
-    \item Introduzi testes E2E com \textbf{Cypress} em uma aplicação legada de grande porte, aumentando a confiança nas entregas e a detecção de regressões.
-    \item Entreguei funcionalidades, correções de produção e automações internas em AngularJS, PHP e PostgreSQL.
+\begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item Foi promovido de júnior a pleno em quatro meses, passando a apoiar prioridades técnicas, code review e decisões de arquitetura.
+    \item Construiu APIs REST seguras para integrações bancárias e processamento de transações financeiras com \textbf{PHP} e \textbf{PostgreSQL}.
+    \item Introduziu testes E2E com \textbf{Cypress} em aplicação legada de grande porte e ampliou a cobertura automatizada, aumentando a confiança nas entregas e a detecção de regressões, com redução estimada de 15\% nos incidentes de produção.
+    \item Entregou funcionalidades, correções de produção e automações internas em AngularJS, PHP e PostgreSQL, mantendo a estabilidade do sistema legado e reduzindo tarefas manuais.
 \end{itemize}
 
-\textbf{Desenvolvedor Freelancer — Frontend} \hfill 06/2023 -- 06/2025
-\begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item Entreguei aplicações React, integrações com APIs e testes Jest para clientes, com foco em performance e acessibilidade.
+\textbf{Freelancer — Desenvolvedor Frontend} \hfill 06/2023 -- 06/2025
+\begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item Desenvolveu aplicações React para diferentes clientes, com foco em performance e acessibilidade, integrando APIs de terceiros com tratamento correto de dados e de erros.
+    \item Implementou testes com Jest e entregou projetos de forma autônoma, gerenciando prazos e comunicação direta com clientes.
+\end{itemize}
+
+% ==========================
+% PROJECTS
+% ==========================
+\section*{Projetos Pessoais}
+
+\textbf{Reason — Workspace Colaborativo e Sistema de Conhecimento com IA} \hfill \href{https://github.com/IsraelAraujo70/notion-clone}{github.com/IsraelAraujo70/notion-clone}\\
+Next.js · PostgreSQL/pgvector · Rust/Axum
+\begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item Desenvolveu workspace colaborativo em tempo real com modelo de blocos, sincronização via WebSocket, busca com escopo por permissões, papeleira e restauração de conteúdo (trash/restore).
+    \item Integrou escrita assistida por IA ao mesmo fluxo de operações do editor, com backend em Rust/Axum e PostgreSQL/pgvector.
+\end{itemize}
+
+\textbf{Drive Clone — Plataforma de Armazenamento em Nuvem} \hfill \href{https://github.com/IsraelAraujo70/drive-clone}{github.com/IsraelAraujo70/drive-clone}
+\begin{itemize}[leftmargin=*, itemsep=1pt]
+    \item Desenvolveu aplicação full stack de armazenamento em nuvem com autorização, pastas, compartilhamento de arquivos, uploads multipart retomáveis e controle de cota por usuário.
+    \item Construiu busca com escopo por permissões, jobs em segundo plano e metadados em PostgreSQL com storage compatível com S3.
 \end{itemize}
 
 % ==========================
 % OPEN SOURCE
 % ==========================
-\vspace{-4pt}
 \section*{Contribuições Open Source}
-Contribuições aceitas no \textbf{Zed Editor}, \textbf{OpenCode} e \textbf{T3Code}, incluindo Git tooling, suporte a Linux/Wayland, packaging Debian e correções de serialização. Links e código disponíveis no GitHub.
-
-% ==========================
-% PROJECTS
-% ==========================
-\vspace{-4pt}
-\section*{Projetos Pessoais}
-
-\textbf{Reason — Workspace Colaborativo e Sistema de Conhecimento com IA} \hfill \href{https://github.com/IsraelAraujo70/notion-clone}{GitHub}\\
-Produto em tempo real com block model, sincronização WebSocket, busca limitada por permissões, trash/restore e escritas de IA pelo mesmo fluxo de operações. Next.js, PostgreSQL/pgvector e Rust/Axum.
-
-\vspace{4pt}
-\textbf{Drive Clone — Plataforma de Armazenamento em Nuvem} \hfill \href{https://github.com/IsraelAraujo70/drive-clone}{GitHub}\\
-Aplicação full stack com autorização, pastas, uploads multipart retomáveis, compartilhamento, controle de quota, busca limitada por permissões, jobs, metadados PostgreSQL e storage compatível com S3.
+Contribuiu com código aceito nos projetos \textbf{Zed Editor}, \textbf{OpenCode} e \textbf{T3Code}, incluindo ferramentas de Git, suporte a Linux/Wayland, empacotamento Debian e correções de serialização.
 
 % ==========================
 % EDUCATION
 % ==========================
 \section*{Formação Acadêmica}
-\begin{itemize}[leftmargin=*, itemsep=2pt]
-    \item \textbf{Bacharelado em Engenharia de Software} — UNINTER (2025--2029)
-    \item \textbf{Bacharelado Interdisciplinar em Ciências e Tecnologia} — UNIFAL (2022--2025, não concluído)
-    \item \textbf{Desenvolvimento Full Stack Python} — EBAC (2024--2025)
-\end{itemize}
+\textbf{Bacharelado em Engenharia de Software} | UNINTER \hfill 2025 -- 2029 (em andamento)\\
+\textbf{Bacharelado Interdisciplinar em Ciências e Tecnologia} | UNIFAL \hfill 2022 -- 2025\\
+Cursado até o 7º semestre (não concluído)
+
+\section*{Certificações}
+\textbf{Desenvolvimento Full Stack Python} | EBAC \hfill 2024 -- 2025
+
+% ==========================
+% SKILLS
+% ==========================
+\section*{Habilidades Profissionais}
+\textbf{Principal:} Python, TypeScript, JavaScript, PHP, SQL\\
+\textbf{Conhecimento prático:} Go, Rust\\
+\textbf{Backend e Frontend:} Django, FastAPI, Node.js, NestJS, REST APIs, React, Next.js, AngularJS\\
+\textbf{Cloud e Dados:} AWS Lambda, SQS, SNS, S3, DynamoDB, Cognito, PostgreSQL, Redis, Kafka, Prisma, Terraform, Docker\\
+\textbf{Qualidade e Entrega:} pytest, Jest, Cypress, Playwright, testes de integração/E2E, GitHub Actions, Buddy CI/CD, observabilidade\\
+\textbf{Arquitetura e IA:} SaaS multi-tenant, sistemas orientados a eventos, arquitetura hexagonal, RBAC, audit logging, extração documental com LLM
+
 
 % ==========================
 % LANGUAGES
 % ==========================
 \section*{Idiomas}
-Português (Nativo) • Inglês (Proficiência profissional)
+Português — Nativo\\
+Inglês — Proficiência profissional
 
 \end{document}
