@@ -43,6 +43,8 @@ BANNED_PATTERNS = {
     r"1[.,]500\+ commits": "commit-volume vanity metric",
     r"500\+ PRs": "PR-volume vanity metric",
     r"\d+k\+ stars": "repository-star borrowing",
+    r"\d[\d.,]*\s*\+?\s*(PRs?|pull requests?|commits?)\b": "volume metric (PRs or commits)",
+    r"\\color\{white\}|\\pdfliteral|\\tiny": "hidden-text wording",
     r"bypass .*bot detection": "unsafe automation wording",
     r"residential proxy": "proxy-evasion wording",
     r"Full Stack Software Engineer with 2\+ years": "stale experience claim",
@@ -98,6 +100,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         shared_links = (
             "israelaraujodeoliveira@gmail.com",
             "linkedin.com/in/araisr",
+            "+55 (35) 99742-1900",
             "github.com/IsraelAraujo70",
             "portfolio.israeldeveloper.com.br",
         )

@@ -19,6 +19,7 @@ import re
 import subprocess
 import sys
 import unicodedata
+from datetime import date
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -42,6 +43,9 @@ SUPPORT_KEYWORDS = (
 )
 MIN_SUPPORT_KEYWORDS = 9
 MIN_DATED_ENTRIES = 4
+MAX_KEYWORD_REPEATS = 10
+MIN_WORDS_PER_PAGE = 50
+STANDARD_ENCODINGS = {"WinAnsi", "MacRoman", "Standard", "MacExpert", "PDFDoc"}
 
 HEADINGS = {
     "pt": (
@@ -82,8 +86,14 @@ def detect_language(text: str) -> str:
     return "pt" if "resumo profissional" in lower or "experiência profissional" in lower else "en"
 
 
-def check_pages(pages: int) -> Check:
-    return Check("pages", pages <= MAX_PAGES, f"{pages} pages (limit {MAX_PAGES})")
+def check_pages(pages: int, words_per_page: list[int] | None = None) -> Check:
+    """At most two pages, and no page that is (nearly) empty."""
+    sparse = [i + 1 for i, words in enumerate(words_per_page or []) if words < MIN_WORDS_PER_PAGE]
+    ok = pages <= MAX_PAGES and not sparse
+    detail = f"{pages} pages (limit {MAX_PAGES})"
+    if sparse:
+        detail += f", page(s) {', '.join(map(str, sparse))} nearly empty"
+    return Check("pages", ok, detail)
 
 
 def check_unicode_clean(text: str) -> Check:
@@ -128,26 +138,47 @@ def check_contact(text: str) -> Check:
     return Check("contact", not missing, f"missing: {', '.join(missing)}" if missing else "email, phone, LinkedIn, GitHub")
 
 
-def check_dates(text: str) -> Check:
+def check_dates(text: str, today: date | None = None) -> Check:
+    """Every date range must be a real month and year, end not before start, nothing in the future."""
+    today = today or date.today()
     starts: list[tuple[int, int]] = []
+    invalid: list[str] = []
     for line in text.splitlines():
         match = DATE_RANGE.search(line)
-        if match and "/" in match.group(1):
-            month, year = match.group(1).split("/")
-            if 2000 <= int(year) <= 2100 and 1 <= int(month) <= 12:
-                starts.append((int(year), int(month)))
+        if not match or "/" not in match.group(1):
+            continue
+
+        def parse(raw: str) -> tuple[int, int] | None:
+            month, year = (int(x) for x in raw.split("/"))
+            valid = 1 <= month <= 12 and 2000 <= year <= today.year and (year, month) <= (today.year, today.month)
+            return (year, month) if valid else None
+
+        start = parse(match.group(1))
+        end = parse(match.group(2)) if match.group(2) else start
+        if start is None or end is None or end < start:
+            invalid.append(match.group(0))
+            continue
+        starts.append(start)
     ordered = starts == sorted(starts, reverse=True)
-    ok = len(starts) >= MIN_DATED_ENTRIES and ordered
-    return Check("dates", ok, f"{len(starts)} dated entries, reverse chronological" if ok else f"{len(starts)} dated entries, ordered={ordered}")
+    ok = not invalid and len(starts) >= MIN_DATED_ENTRIES and ordered
+    detail = f"{len(starts)} dated entries, reverse chronological"
+    if not ok:
+        detail = f"{len(starts)} dated entries, ordered={ordered}, invalid={invalid or 'none'}"
+    return Check("dates", ok, detail)
+
+
+FONT_ROW = re.compile(
+    r"^(?P<name>\S+)\s+(?P<type>.+?)\s+(?P<enc>\S+)\s+(?P<emb>yes|no)\s+(?P<sub>yes|no)\s+(?P<uni>yes|no)\s+\d+\s+\d+\s*$"
+)
 
 
 def check_fonts(font_table: str) -> Check:
-    rows = [line.split() for line in font_table.splitlines()[2:] if line.strip()]
+    """A font needs a Unicode map unless it uses a standard text encoding that extracts cleanly."""
+    rows = [m for m in (FONT_ROW.match(line) for line in font_table.splitlines()[2:] if line.strip()) if m]
     if not rows:
         return Check("fonts", False, "no fonts found")
-    bad = [r[0] for r in rows if len(r) < 5 or r[-5] != "yes" or r[-3] != "yes"]
-    # Columns end with: emb sub uni object ID -> emb is r[-5], uni is r[-3].
-    return Check("fonts", not bad, f"{len(rows)} fonts embedded with Unicode map" if not bad else f"no Unicode map: {', '.join(bad)}")
+    bad = [m["name"] for m in rows if m["uni"] == "no" and m["enc"] not in STANDARD_ENCODINGS]
+    return Check("fonts", not bad, f"{len(rows)} fonts readable" if not bad else f"no Unicode map: {', '.join(bad)}")
 
 
 def check_bullets(text: str) -> Check:
@@ -163,10 +194,13 @@ def check_keywords(text: str) -> Check:
     lower = text.lower()
     core_missing = [k for k in CORE_KEYWORDS if k.lower() not in lower]
     support = [k for k in SUPPORT_KEYWORDS if k.lower() in lower]
-    ok = not core_missing and len(support) >= MIN_SUPPORT_KEYWORDS
+    stuffed = [k for k in CORE_KEYWORDS if lower.count(k.lower()) > MAX_KEYWORD_REPEATS]
+    ok = not core_missing and len(support) >= MIN_SUPPORT_KEYWORDS and not stuffed
     detail = f"core {len(CORE_KEYWORDS) - len(core_missing)}/{len(CORE_KEYWORDS)}, support {len(support)}/{len(SUPPORT_KEYWORDS)}"
     if core_missing:
         detail += f", missing core: {', '.join(core_missing)}"
+    if stuffed:
+        detail += f", repeated more than {MAX_KEYWORD_REPEATS}x: {', '.join(stuffed)}"
     return Check("keywords", ok, detail)
 
 
@@ -185,8 +219,11 @@ def score_pdf(path: Path) -> list[Check]:
     text = run_tool(["pdftotext", "-layout", str(path), "-"])
     info = run_tool(["pdfinfo", str(path)])
     pages = int(re.search(r"Pages:\s+(\d+)", info).group(1))  # type: ignore[union-attr]
+    words_per_page = [
+        len(run_tool(["pdftotext", "-f", str(n), "-l", str(n), str(path), "-"]).split()) for n in range(1, pages + 1)
+    ]
     return [
-        check_pages(pages),
+        check_pages(pages, words_per_page),
         check_unicode_clean(text),
         check_headings(text),
         check_section_order(text),

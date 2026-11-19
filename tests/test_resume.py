@@ -28,6 +28,13 @@ class ResumeValidatorTests(unittest.TestCase):
         self.assertIn("proxy-evasion wording", combined)
         self.assertIn("unsafe automation wording", combined)
 
+    def test_rejects_volume_metrics_and_hidden_text(self) -> None:
+        for text in ("Autor de 600+ PRs", "2.000 commits", "Mais de 500 pull requests", r"{\color{white} AWS}", r"{\tiny AWS}"):
+            self.assertTrue(VALIDATOR.validate_text("english.tex", text), text)
+        for text in ("transforma tickets do Linear em pull requests", "mais de 10 provedores"):
+            errors = VALIDATOR.validate_text("english.tex", text)
+            self.assertFalse(any("volume" in e or "hidden" in e for e in errors), text)
+
     def test_rejects_moneria_with_wrong_date_or_hidden_in_comment(self) -> None:
         english = (ROOT / "english.tex").read_text(encoding="utf-8")
         wrong_date = english.replace("\\hfill 10/2026 --", "\\hfill 10/2025 --", 1)
@@ -55,6 +62,7 @@ class ResumeValidatorTests(unittest.TestCase):
                         "06/2025",
                         "israelaraujodeoliveira@gmail.com",
                         "linkedin.com/in/araisr",
+                        "+55 (35) 99742-1900",
                         "github.com/IsraelAraujo70",
                         "portfolio.israeldeveloper.com.br",
                     )
