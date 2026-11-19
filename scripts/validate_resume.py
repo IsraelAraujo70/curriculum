@@ -21,6 +21,8 @@ REQUIRED = {
         "ComicConnect",
         "(Contract)",
         "Professional working proficiency",
+        "\\usepackage[T1]{fontenc}",
+        "\\pdfgentounicode=1",
     ),
     "portuguese.tex": (
         "Engenheiro de Software Full Stack e IA Pleno",
@@ -32,6 +34,8 @@ REQUIRED = {
         "ComicConnect",
         "(Contrato)",
         "Proficiência profissional",
+        "\\usepackage[T1]{fontenc}",
+        "\\pdfgentounicode=1",
     ),
 }
 
