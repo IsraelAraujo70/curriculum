@@ -17,6 +17,7 @@ REQUIRED = {
         "Python",
         "TypeScript",
         "AWS",
+        "Moneria",
         "ComicConnect",
         "(Contract)",
         "Professional working proficiency",
@@ -27,6 +28,7 @@ REQUIRED = {
         "Python",
         "TypeScript",
         "AWS",
+        "Moneria",
         "ComicConnect",
         "(Contrato)",
         "Proficiência profissional",
@@ -74,7 +76,7 @@ def validate_repository(root: Path = ROOT) -> list[str]:
         errors.extend(validate_text(filename, documents[filename]))
 
     if len(documents) == 2:
-        for date in ("04/2026", "10/2025", "05/2026", "01/2025", "06/2023", "06/2025"):
+        for date in ("10/2026", "04/2026", "10/2025", "05/2026", "01/2025", "06/2023", "06/2025"):
             if any(date not in text for text in documents.values()):
                 errors.append(f"experience date is inconsistent across languages: {date}")
 

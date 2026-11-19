@@ -35,6 +35,7 @@ class ResumeValidatorTests(unittest.TestCase):
                 text = "\n".join(required)
                 text += "\n" + "\n".join(
                     (
+                        "10/2026",
                         "04/2026",
                         "10/2025",
                         "05/2026",
